@@ -201,8 +201,10 @@
 //     );
 //   }
 // }
+import 'package:audioplayer/provider_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:provider/provider.dart';
 
 class AudioPlayerPage extends StatefulWidget {
   @override
@@ -212,6 +214,7 @@ class AudioPlayerPage extends StatefulWidget {
 class _AudioPlayerPageState extends State<AudioPlayerPage> {
   @override
   Widget build(BuildContext context) {
+    final audioPlayerProvider = Provider.of<AudioPlayerProvider>(context);
     return Scaffold(
         body: Container(
       height: MediaQuery.of(context).size.height,
@@ -221,14 +224,15 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
         padding: const EdgeInsets.all(18.0),
         child: SingleChildScrollView(
           child: Column(children: [
-            SizedBox(height: 20,),
-
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  child: Icon(
+                  child: const Icon(
                     Icons.dehaze_rounded,
                     color: Colors.white,
                     size: 24.0,
@@ -241,13 +245,13 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Container(
                   height: 70,
                   width: 280,
-                  child: TextField(
+                  child: const TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
                       border: OutlineInputBorder(),
@@ -257,7 +261,7 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
                 ),
               ],
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: Text(
                 'Trending right now',
@@ -267,124 +271,112 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
                     color: Colors.white),
               ),
             ),
-            SizedBox(height: 20,),
-
+            const SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Stack(children: [
-                    Container(
-                      height: 150,width: 160,
-                      decoration: BoxDecoration(
-                        color: const Color(0xff7c94b6),
-                        image: const DecorationImage(
-                          image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8,right:8 ,top: 66,),
-                      child: Container(
-                        child: ListTile(
-                          title: Text(" xxxxxxxx"),
-                          subtitle: Text("From: to"),
-                        ),
-
-                        height: 70,width: 145,
+                  Stack(
+                    children: [
+                      Container(
+                        height: 150,
+                        width: 160,
                         decoration: BoxDecoration(
-                          color:  Colors.indigo,
+                          color: const Color(0xff7c94b6),
+                          image: const DecorationImage(
+                            image: NetworkImage(
+                                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                            fit: BoxFit.cover,
+                          ),
                           borderRadius: BorderRadius.circular(12),
-
-
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 8,
+                          right: 8,
+                          top: 66,
+                        ),
+                        child: Container(
+                          child: const ListTile(
+                            title: Text(" xxxxxxxx"),
+                            subtitle: Text("From: to"),
+                          ),
+                          height: 70,
+                          width: 145,
+                          decoration: BoxDecoration(
+                            color: Colors.indigo,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  Stack(children: [
-                    Container(
-                      height: 150,width: 160,
-                      decoration: BoxDecoration(
-                        color: const Color(0xff7c94b6),
-                        image: const DecorationImage(
-                          image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8,right:8 ,top: 66,),
-                      child: Container(
-                        child: ListTile(
-                          title: Text(" xxxxxxxx"),
-                          subtitle: Text("From: to"),
-                        ),
-
-                        height: 70,width: 145,
+                  Stack(
+                    children: [
+                      Container(
+                        height: 150,
+                        width: 160,
                         decoration: BoxDecoration(
-                          color:  Colors.indigo,
+                          color: const Color(0xff7c94b6),
+                          image: const DecorationImage(
+                            image: NetworkImage(
+                                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+                            fit: BoxFit.cover,
+                          ),
                           borderRadius: BorderRadius.circular(12),
-
-
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 8,
+                          right: 8,
+                          top: 66,
+                        ),
+                        child: Container(
+                          child: const ListTile(
+                            title: Text(" xxxxxxxx"),
+                            subtitle: Text("From: to"),
+                          ),
+                          height: 70,
+                          width: 145,
+                          decoration: BoxDecoration(
+                            color: Colors.indigo,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-
                 ],
               ),
             ),
-            SizedBox(height: 20,),
-
-            Container(
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
               height: 300,
               width: MediaQuery.of(context).size.width,
-
-              child: ListView(
-                children: const <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ListTile(
+              child: ListView.builder(
+                  itemCount: audioPlayerProvider.audioFiles.length,
+                  itemBuilder: (context, index) {
+                    final audioFile = audioPlayerProvider.audioFiles[index];
+                    return ListTile(
                       leading: FlutterLogo(size: 56.0),
-                      title: Text('Two-line ListTile'),
-                      subtitle: Text('Here is a second line'),
-                      trailing: Icon(Icons.favorite_border),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ListTile(
-                      leading: FlutterLogo(size: 56.0),
-                      title: Text('Two-line ListTile'),
-                      subtitle: Text('Here is a second line'),
-                      trailing: Icon(Icons.favorite_border),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ListTile(
-                      leading: FlutterLogo(size: 56.0),
-                      title: Text('Two-line ListTile'),
-                      subtitle: Text('Here is a second line'),
-                      trailing: Icon(Icons.favorite_border),
-                    ),
-                  ),
-
-
-                ],
-              ),
+                      title: const Text('Audio Player'),
+                      trailing: IconButton(
+                        icon: Icon(audioFile.isPlaying
+                            ? Icons.pause
+                            : Icons.play_arrow),
+                        onPressed: () =>
+                            audioPlayerProvider.toggleAudioFile(index),
+                      ),
+                    );
+                  }),
             ),
-
-
-
           ]),
         ),
       ),

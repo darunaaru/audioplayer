@@ -1,7 +1,6 @@
 import 'package:audioplayer/model_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:provider/provider.dart';
 
 class AudioPlayerProvider extends ChangeNotifier {
   final List<AudioFile> audioFiles = [
@@ -19,7 +18,7 @@ class AudioPlayerProvider extends ChangeNotifier {
       await audioPlayer.pause();
       audioFile.isPlaying = false;
     } else {
-      await audioPlayer.resume();
+      await audioPlayer.play(audioFile.filePath);
       audioFile.isPlaying = true;
     }
 

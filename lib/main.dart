@@ -1,10 +1,13 @@
 import 'package:audioplayer/home_screen.dart';
+import 'package:audioplayer/provider_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'bottomnavigation.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => AudioPlayerProvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
